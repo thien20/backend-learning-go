@@ -51,7 +51,8 @@ func (h *ItemHandler) handleGetItem(w http.ResponseWriter, r *http.Request) {
 	// TODO: Decide what a stable API response should look like. Is returning the
 	// domain model directly good enough, or should there be a dedicated response
 	// shape?
-	writeJSON(w, http.StatusOK, item)
+
+	writeJSON(w, http.StatusOK, GetItemResponse(item))
 }
 
 func writeJSON(w http.ResponseWriter, status int, payload any) {
